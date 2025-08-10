@@ -1,0 +1,11 @@
+services:
+  nextjs:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app          # ソースコードをコンテナにマウント（開発用）
+      - /app/node_modules # node_modulesはコンテナ内に保持
+    environment:
+      - NODE_ENV=development
+    command: npm run dev  # 開発モードで起動
